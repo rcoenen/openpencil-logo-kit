@@ -93,8 +93,44 @@
       }
       .controls button:hover:not(:disabled) { border-color: #6a6a6a; }
       .controls button:disabled { opacity: 0.35; cursor: default; }
-      .counter { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
-      .caption { flex: 1; text-align: center; font-size: 14px; }
+      .dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+      .dots button {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: none;
+        padding: 0;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+      }
+      .dots button::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #6a6a6a;
+        transition: width 160ms ease, background-color 160ms ease;
+      }
+      .dots button:hover::before { background: #9a9a9a; }
+      .dots button[aria-current='true']::before { width: 20px; background: var(--text); }
+      .dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+      .status-line { display: flex; justify-content: center; gap: 8px; margin-top: 6px; font-size: 14px; }
+      .status-line { align-items: center; }
+      .caption {
+        appearance: none;
+        background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23a6a6a6' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 10px center;
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 6px 28px 6px 10px;
+        font: inherit;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .caption:hover { border-color: #6a6a6a; }
+      .caption:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+      .counter { color: var(--muted); font-variant-numeric: tabular-nums; }
       footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
       footer a { color: var(--text); }
     </style>
@@ -151,9 +187,12 @@
         </div>
         <div class="controls">
           <button type="button" class="prev" aria-label="Previous page">‹</button>
-          <span class="caption"></span>
-          <span class="counter" aria-live="polite"></span>
+          <div class="dots" role="group" aria-label="Go to page"></div>
           <button type="button" class="next" aria-label="Next page">›</button>
+        </div>
+        <div class="status-line">
+          <select class="caption" aria-label="Jump to page"></select>
+          <span class="counter" aria-live="polite"></span>
         </div>
       </section>
 
@@ -185,6 +224,18 @@
       const next = document.querySelector('.next')
       const counter = document.querySelector('.counter')
       const caption = document.querySelector('.caption')
+      const dots = slides.map((slide, index) => {
+        const dot = document.createElement('button')
+        dot.type = 'button'
+        dot.setAttribute('aria-label', `Page ${index + 1}: ${slide.dataset.title}`)
+        dot.addEventListener('click', () => go(index))
+        document.querySelector('.dots').append(dot)
+        return dot
+      })
+      slides.forEach((slide, index) => {
+        caption.add(new Option(`${index + 1}. ${slide.dataset.title}`, String(index)))
+      })
+      caption.addEventListener('change', () => go(Number(caption.value)))
       const current = () => Math.round(track.scrollLeft / track.clientWidth)
       const go = (index) => {
         const clamped = Math.max(0, Math.min(slides.length - 1, index))
@@ -193,7 +244,8 @@
       const update = () => {
         const index = current()
         counter.textContent = `${index + 1} / ${slides.length}`
-        caption.textContent = slides[index].dataset.title
+        dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)))
+        caption.value = String(index)
         prev.disabled = index === 0
         next.disabled = index === slides.length - 1
       }
