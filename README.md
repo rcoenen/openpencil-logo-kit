@@ -5,9 +5,11 @@
   </picture>
 </p>
 
-> **Status: proposal.** This logo kit is proposed for [OpenPencil](https://github.com/open-pencil/open-pencil) by [@rcoenen](https://github.com/rcoenen). It is not the project's adopted brand; OpenPencil's current logo lives in its repository under `assets/brand/`.
+<h3 align="center">
+  <a href="https://rcoenen.github.io/openpencil-logo-kit/">▶ See the demo site: the video and the guidelines, page by page</a>
+</h3>
 
-**▶ [Watch how the mark came together](https://rcoenen.github.io/openpencil-logo-kit/)**
+> **Status: proposal.** This logo kit is proposed for [OpenPencil](https://github.com/open-pencil/open-pencil) by [@rcoenen](https://github.com/rcoenen). It is not the project's adopted brand; OpenPencil's current logo lives in its repository under `assets/brand/`.
 
 # OpenPencil logo kit (v5)
 
