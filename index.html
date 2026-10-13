@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenPencil logo kit</title>
+    <meta name="description" content="How the OpenPencil mark came together, and the logo kit it produced. A proposal for OpenPencil." />
+    <meta property="og:title" content="How the OpenPencil mark came together" />
+    <meta property="og:description" content="111 boards, 4 concepts, 1 P. A logo kit proposal for OpenPencil." />
+    <meta property="og:image" content="media/how-the-mark-came-together-poster.jpg" />
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+    <style>
+      :root {
+        --bg: #141414;
+        --surface: #1f1f1f;
+        --text: #f0f0f0;
+        --muted: #a6a6a6;
+        --line: #2e2e2e;
+        --accent: #ffd43b;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      main { max-width: 1040px; margin: 0 auto; padding: 48px 16px 64px; }
+      header img { width: min(360px, 70vw); height: auto; display: block; }
+      h1 { font-size: 28px; font-weight: 600; margin: 32px 0 4px; letter-spacing: -0.01em; }
+      .lede { color: var(--muted); margin: 0 0 24px; }
+      .status {
+        display: inline-block;
+        font-size: 13px;
+        color: var(--accent);
+        border: 1px solid #ffd43b55;
+        border-radius: 999px;
+        padding: 2px 10px;
+        margin-top: 20px;
+      }
+      video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        background: #000;
+        display: block;
+      }
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin-top: 32px;
+      }
+      .links a {
+        display: block;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px 16px;
+        color: var(--text);
+        text-decoration: none;
+      }
+      .links a:hover { border-color: #555; }
+      .links span { display: block; color: var(--muted); font-size: 14px; }
+      footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+      footer a { color: var(--text); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="lockup/open-pencil-horizontal-colour-on-dark.svg" alt="OpenPencil" />
+        <span class="status">Proposal, not the adopted brand</span>
+      </header>
+
+      <h1>How the mark came together</h1>
+      <p class="lede">111 boards, 4 concepts, 1 P. The process behind the logo kit proposed for OpenPencil.</p>
+
+      <video controls playsinline preload="metadata" poster="media/how-the-mark-came-together-poster.jpg">
+        <source src="media/how-the-mark-came-together.mp4" type="video/mp4" />
+        <a href="media/how-the-mark-came-together.mp4">Download the video</a>
+      </video>
+
+      <nav class="links" aria-label="Logo kit">
+        <a href="open-pencil-logo-guidelines.pdf">Guidelines<span>Ten-page PDF overview</span></a>
+        <a href="https://github.com/rcoenen/openpencil-logo-kit">Logo kit files<span>SVG, PNG, lockups, favicons, UI icon</span></a>
+        <a href="media/how-the-mark-came-together.mp4" download>Download the video<span>MP4, 1080p, 1 min 47 s</span></a>
+      </nav>
+
+      <footer>
+        A logo kit proposal for <a href="https://openpencil.dev">OpenPencil</a> by
+        <a href="https://github.com/rcoenen">@rcoenen</a>. MIT licensed, like OpenPencil.
+      </footer>
+    </main>
+  </body>
+</html>

@@ -7,6 +7,8 @@
 
 > **Status: proposal.** This logo kit is proposed for [OpenPencil](https://github.com/open-pencil/open-pencil) by [@rcoenen](https://github.com/rcoenen). It is not the project's adopted brand; OpenPencil's current logo lives in its repository under `assets/brand/`.
 
+**▶ [Watch how the mark came together](https://rcoenen.github.io/openpencil-logo-kit/)**
+
 # OpenPencil logo kit (v5)
 
 ## The mark
