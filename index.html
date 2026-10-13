@@ -251,7 +251,11 @@
       }
       prev.addEventListener('click', () => go(current() - 1))
       next.addEventListener('click', () => go(current() + 1))
-      track.addEventListener('keydown', (event) => {
+      // Left and right turn the pages from anywhere on the page, except where focus needs the
+      // arrows itself: the video seeks with them and the page menu moves through its options.
+      document.addEventListener('keydown', (event) => {
+        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+        if (event.target.closest?.('video, select, input, textarea')) return
         if (event.key === 'ArrowRight') { event.preventDefault(); go(current() + 1) }
         if (event.key === 'ArrowLeft') { event.preventDefault(); go(current() - 1) }
       })
