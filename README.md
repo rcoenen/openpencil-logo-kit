@@ -55,3 +55,7 @@ Outfit SemiBold (600), letter-spacing -2%. In the lockup files the wordmark is o
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ```
+
+## License
+
+[MIT](LICENSE), the same license as OpenPencil.
